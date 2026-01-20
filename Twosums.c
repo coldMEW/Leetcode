@@ -18,8 +18,7 @@ int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
 
 
 int main() {
-    int a= 121;
-    if (a + a == 2*a)
+
     int nums[] = {2,7,11,15};
     int target = 17;
     int returnSize;
