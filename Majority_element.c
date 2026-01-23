@@ -3,31 +3,35 @@
 #include <stdlib.h>
 
 
-int majorityElement(int* nums, int numsSize) {
-    int length = numsSize / 2;
+int majorityElement(int* nums, int numsSize)
+{
+    int candidate = nums[0];
+    int count = 1;
 
-  
-    for (int x = 0; x < numsSize; x++)
+    for (int i = 1; i < numsSize; i++)
     {
-        int count = 0;
-        for (int y = 0; y < numsSize; y++)
+        if (count == 0)
         {
-            if (nums[x] == nums[y])
-            {
-                count = count + 1;
-            }
-            if ( count > length)
-            {
-                return nums[x];
-            }
+            candidate = nums[i];
+            count = 1;
+        }
+        else if (nums[i] == candidate)
+        {
+            count++;
+        }
+        else
+        {
+            count--;
         }
     }
-    
+
+    return candidate;
 }
+
 
 int main()
 {
-    int nums[7] = {3,2,3,2,2,2,2};
-    printf("The number is :%d", majorityElement(nums, 7)) ;
+    int nums[11] = {2,2,1,1,1,2,2,1,1,1,1};
+       printf("The number is: %d", majorityElement(nums, 11)) ;
 
 }
